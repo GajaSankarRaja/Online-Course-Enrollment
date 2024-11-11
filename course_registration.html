@@ -1,0 +1,619 @@
+{% extends "base.html" %}
+{% block content %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<form class="course_registration" method="POST">
+    {% csrf_token %}
+    <div class="jumbotron jumbotron-fluid mt-5">
+        <div class="container">
+          <h1 class="display-4 ml-5">Course Selection</h1>
+          <p class="lead ml-5">Please set your course schedule in a way that does not exceed 26 course hours.</p>
+        </div>
+    </div>
+
+{% for message in messages %}
+    {% if 'successful' in message.extra_tags %}
+    <div class="alert alert-success mt-3" role="alert">
+        {{ message }}
+    </div>
+    {% elif 'error' in message.extra_tags %}
+    <div class="alert alert-info mt-3" role="alert">
+        {{ message }}
+    </div>
+    {% endif %}
+{% endfor %}
+
+   
+    <!--First Year Courses-->
+    <div class="card">
+        <div class="card-header lead" style="background-color: rgba(236, 209, 118, 0.726);">
+            First Year Courses
+        </div>
+    
+        <table class="table table-bordered" style="font-size: smaller;">
+            <thead class="thead-light">
+              <tr class="text-center">
+                <th scope="col">#</th>
+                <th scope="col">Department Name</th>
+                <th scope="col">Course Code</th>
+                <th scope="col">Course Name</th>
+                <th scope="col">Theoritacal</th>
+                <th scope="col">Practical</th>
+                <th scope="col">Credit</th>
+                <th scope="col">Course Type</th>
+                <th scope="col">Branch</th>
+                <th scope="col">Choice</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="text-center">
+                <th scope="row">1</th>
+                <td><input type="text" name="department_name0" value="Computer Eng." hidden>Artifical Intelligence</td>
+                <td><input type="text" name="course_id0" value="CME1211" hidden>CME1211</td>
+                <td><input type="text" name="course_name0" value="Programming Logic and Design" hidden>Programming Logic and Design</td>
+                <td><input type="number" name="theoretical_hour0" value="2" hidden>2</td>
+                <td><input type="number" name="practical_hour0" value="2" hidden>2</td>
+                <td><input type="number" name="credit0" value="3" hidden>3</td>
+                <td><input type="text" name="course_type0" value="Compulsory" hidden>Compulsory</td>
+                <td>
+                    <select class="custom-select custom-select-sm" name="branch0">
+                        <option selected>Select</option>
+                        <option value="1. branch" style="font-size: larger;">1. branch</option>
+                        <option value="2. branch" style="font-size: larger;">2. branch</option>
+                    </select>    
+                </td>
+                <td>
+                    <div class="custom-control custom-checkbox ml-3">
+                        <input type="checkbox" class="custom-control-input" name="is_course_chosen0" id="customCheck0">
+                        <label class="custom-control-label" for="customCheck0"></label>
+                    </div>
+                </td>
+              </tr>
+              <tr class="text-center">
+                <th scope="row">2</th>
+                <td><input type="text" name="department_name1" value="Artifical Intelligence" hidden>Artifical Intelligence</td>
+                <td><input type="text" name="course_id1" value="CME1203" hidden>CME1203</td>
+                <td><input type="text" name="course_name1" value="Matrices and Calculus" hidden>Matrices and Calculus</td>
+                <td><input type="number" name="theoretical_hour1" value="2" hidden>2</td>
+                <td><input type="number" name="practical_hour1" value="2" hidden>2</td>
+                <td><input type="number" name="credit1" value="3" hidden>3</td>
+                <td><input type="text" name="course_type1" value="Compulsory" hidden>Compulsory</td>
+                <td>
+                    <select class="custom-select custom-select-sm" name="branch1">
+                        <option selected>Select</option>
+                        <option value="1. branch" style="font-size: larger;">1. branch</option>
+                        <option value="2. branch" style="font-size: larger;">2. branch</option>
+                    </select>    
+                </td>
+                <td>
+                    <div class="custom-control custom-checkbox ml-3">
+                        <input type="checkbox" class="custom-control-input" name="is_course_chosen1" id="customCheck1">
+                        <label class="custom-control-label" for="customCheck1"></label>
+                    </div>
+                </td>
+              </tr>
+              <tr class="text-center">
+                <th scope="row">3</th>
+                <td><input type="text" name="department_name2" value="Artifical Intelligence" hidden>Artifical Intelligence</td>
+                <td><input type="text" name="course_id2" value="CME1205" hidden>CME1205</td>
+                <td><input type="text" name="course_name2" value="OOPS's in Python" hidden>OOPS's in Python</td>
+                <td><input type="number" name="theoretical_hour2" value="3" hidden>3</td>
+                <td><input type="number" name="practical_hour2" value="0" hidden>0</td>
+                <td><input type="number" name="credit2" value="3" hidden>3</td>
+                <td><input type="text" name="course_type2" value="Compulsory" hidden>Compulsory</td>
+                <td>
+                    <select class="custom-select custom-select-sm" name="branch2">
+                        <option selected>Select</option>
+                        <option value="1. branch" style="font-size: larger;">1. branch</option>
+                        <option value="2. branch" style="font-size: larger;">2. branch</option>
+                    </select>    
+                </td>
+                <td>
+                    <div class="custom-control custom-checkbox ml-3">
+                        <input type="checkbox" class="custom-control-input" name="is_course_chosen2" id="customCheck2">
+                        <label class="custom-control-label" for="customCheck2"></label>
+                    </div>
+                </td>
+              </tr>
+              <tr class="text-center">
+                <th scope="row">4</th>
+                <td><input type="text" name="department_name3" value="Artifical Intelligence" hidden>Artifical Intelligence</td>
+                <td><input type="text" name="course_id3" value="CME1251" hidden>CME1251</td>
+                <td><input type="text" name="course_name3" value="Fundamentals of WebScripting" hidden>Fundamentals of WebScripting</td>
+                <td><input type="number" name="theoretical_hour3" value="2" hidden>2</td>
+                <td><input type="number" name="practical_hour3" value="2" hidden>2</td>
+                <td><input type="number" name="credit3" value="3" hidden>3</td>
+                <td><input type="text" name="course_type3" value="Compulsory" hidden>Compulsory</td>
+                <td>
+                    <select class="custom-select custom-select-sm" name="branch3">
+                        <option selected>Select</option>
+                        <option value="1. branch" style="font-size: larger;">1. branch</option>
+                        <option value="2. branch" style="font-size: larger;">2. branch</option>
+                        <option value="3. branch" style="font-size: larger;">3. branch</option>
+                        <option value="4. branch" style="font-size: larger;">4. branch</option>
+                        <option value="5. branch" style="font-size: larger;">5. branch</option>
+                        <option value="6. branch" style="font-size: larger;">6. branch</option>
+                    </select>    
+                </td>
+                <td>
+                    <div class="custom-control custom-checkbox ml-3">
+                        <input type="checkbox" class="custom-control-input" name="is_course_chosen3" id="customCheck3">
+                        <label class="custom-control-label" for="customCheck3"></label>
+                    </div>
+                </td>
+              </tr>
+              <tr class="text-center">
+                <th scope="row">5</th>
+                <td><input type="text" name="department_name4" value="Artifical Intelligence" hidden>Artifical Intelligence</td>
+                <td><input type="text" name="course_id4" value="MAT1001" hidden>MAT1001</td>
+                <td><input type="text" name="course_name4" value="Fundamentals of DataScience" hidden>Fundamentals of DataScience</td>
+                <td><input type="number" name="theoretical_hour4" value="4" hidden>4</td>
+                <td><input type="number" name="practical_hour4" value="0" hidden>0</td>
+                <td><input type="number" name="credit4" value="4" hidden>4</td>
+                <td><input type="text" name="course_type4" value="Compulsory" hidden>Compulsory</td>
+                <td>
+                    <select class="custom-select custom-select-sm" name="branch4">
+                        <option selected>Select</option>
+                        <option value="1. branch" style="font-size: larger;">1. branch</option>
+                        <option value="2. branch" style="font-size: larger;">2. branch</option>
+                    </select>    
+                </td>
+                <td>
+                    <div class="custom-control custom-checkbox ml-3">
+                        <input type="checkbox" class="custom-control-input" name="is_course_chosen4" id="customCheck4">
+                        <label class="custom-control-label" for="customCheck4"></label>
+                    </div>
+                </td>
+              </tr>
+              <tr class="text-center">
+                <th scope="row">6</th>
+                <td><input type="text" name="department_name5" value="Artifical Intelligence" hidden>Artifical Intelligence</td>
+                <td><input type="text" name="course_id5" value="PHY1101" hidden>PHY1101</td>
+                <td><input type="text" name="course_name5" value="Physics" hidden>Physics</td>
+                <td><input type="number" name="theoretical_hour5" value="3" hidden>3</td>
+                <td><input type="number" name="practical_hour5" value="2" hidden>2</td>
+                <td><input type="number" name="credit5" value="4" hidden>4</td>
+                <td><input type="text" name="course_type5" value="Compulsory" hidden>Compulsory</td>
+                <td>
+                    <select class="custom-select custom-select-sm" name="branch5">
+                        <option selected>Select</option>
+                        <option value="1. branch" style="font-size: larger;">1. branch</option>
+                        <option value="2. branch" style="font-size: larger;">2. branch</option>
+                    </select>    
+                </td>
+                <td>
+                    <div class="custom-control custom-checkbox ml-3">
+                        <input type="checkbox" class="custom-control-input" name="is_course_chosen5" id="customCheck5">
+                        <label class="custom-control-label" for="customCheck5"></label>
+                    </div>
+                </td>
+              </tr>
+             
+            </tbody>
+          </table>
+    </div>
+
+    <!--Second Year Courses-->
+    <div class="card mt-5">
+        <div class="card-header lead" style="background-color:  rgba(111, 199, 99, 0.726);">
+            Second Year Courses
+        </div>
+    
+        <table class="table table-bordered" style="font-size: smaller;">
+            <thead class="thead-light">
+              <tr class="text-center">
+                <th scope="col">#</th>
+                <th scope="col">Department Name</th>
+                <th scope="col">Course Code</th>
+                <th scope="col">Course Name</th>
+                <th scope="col">Theoritacal</th>
+                <th scope="col">Practical</th>
+                <th scope="col">Credit</th>
+                <th scope="col">Course Type</th>
+                <th scope="col">Branch</th>
+                <th scope="col">Choice</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="text-center">
+                <th scope="row">1</th>
+                <td><input type="text" name="department_name7" value="Artifical Intelligence" hidden>Artifical Intelligence</td>
+                <td><input type="text" name="course_id7" value="CME2201" hidden>CME2201</td>
+                <td><input type="text" name="course_name7" value="Data Structures" hidden>Data Structures</td>
+                <td><input type="number" name="theoretical_hour7" value="2" hidden>2</td>
+                <td><input type="number" name="practical_hour7" value="2" hidden>2</td>
+                <td><input type="number" name="credit7" value="3" hidden>3</td>
+                <td><input type="number" name="credit5" value="4" hidden>4</td>
+                <td><input type="text" name="course_type7" value="Compulsory" hidden>Compulsory</td>
+                <td>
+                    <select class="custom-select custom-select-sm" name="branch7">
+                        <option selected>Select</option>
+                        <option value="1. branch" style="font-size: larger;">1. branch</option>
+                        <option value="2. branch" style="font-size: larger;">2. branch</option>
+                    </select>    
+                </td>
+                <td>
+                    <div class="custom-control custom-checkbox ml-3">
+                        <input type="checkbox" class="custom-control-input" name="is_course_chosen7" id="customCheck7">
+                        <label class="custom-control-label" for="customCheck7"></label>
+                    </div>
+                </td>
+              </tr>
+              <tr class="text-center">
+                <th scope="row">2</th>
+                <td><input type="text" name="department_name8" value="Artifical Intelligence" hidden>Artifical Intelligence</td>
+                <td><input type="text" name="course_id8" value="CME2203" hidden>CME2203</td>
+                <td><input type="text" name="course_name8" value="R Programming" hidden>R Programming</td>
+                <td><input type="number" name="theoretical_hour8" value="3" hidden>3</td>
+                <td><input type="number" name="practical_hour8" value="2" hidden>2</td>
+                <td><input type="number" name="credit8" value="4" hidden>4</td>
+                <td><input type="number" name="credit5" value="4" hidden>4</td>
+                <td><input type="text" name="course_type8" value="Compulsory" hidden>Compulsory</td>
+                <td>
+                    <select class="custom-select custom-select-sm" name="branch8">
+                        <option selected>Select</option>
+                        <option value="1. branch" style="font-size: larger;">1. branch</option>
+                        <option value="2. branch" style="font-size: larger;">2. branch</option>
+                    </select>    
+                </td>
+                <td>
+                    <div class="custom-control custom-checkbox ml-3">
+                        <input type="checkbox" class="custom-control-input" name="is_course_chosen8" id="customCheck8">
+                        <label class="custom-control-label" for="customCheck8"></label>
+                    </div>
+                </td>
+              </tr>
+              <tr class="text-center">
+                <th scope="row">3</th>
+                <td><input type="text" name="department_name9" value="Artifical Intelligence" hidden>Artifical Intelligence</td>
+                <td><input type="text" name="course_id9" value="CME2205" hidden>CME2205</td>
+                <td><input type="text" name="course_name9" value="Probability and Statistics" hidden>Probability and Statistics</td>
+                <td><input type="number" name="theoretical_hour9" value="2" hidden>2</td>
+                <td><input type="number" name="practical_hour9" value="2" hidden>2</td>
+                <td><input type="number" name="akts9" value="4" hidden>4</td>
+                <td><input type="number" name="credit9" value="3" hidden>3</td>
+                <td><input type="text" name="course_type9" value="Compulsory" hidden>Compulsory</td>
+                <td>
+                    <select class="custom-select custom-select-sm" name="branch9">
+                        <option selected>Select</option>
+                        <option value="1. branch" style="font-size: larger;">1. branch</option>
+                        <option value="2. branch" style="font-size: larger;">2. branch</option>
+                    </select>    
+                </td>
+                <td>
+                    <div class="custom-control custom-checkbox ml-3">
+                        <input type="checkbox" class="custom-control-input" name="is_course_chosen9" id="customCheck9">
+                        <label class="custom-control-label" for="customCheck9"></label>
+                    </div>
+                </td>
+              </tr>
+              <tr class="text-center">
+                <th scope="row">4</th>
+                <td><input type="text" name="department_name10" value="Artifical Intelligence" hidden>Artifical Intelligence</td>
+                <td><input type="text" name="course_id10" value="CME2207" hidden>CME2207</td>
+                <td><input type="text" name="course_name10" value="Differential Equations and Linear Algebra" hidden>Differential Equations and Linear Algebra</td>
+                <td><input type="number" name="theoretical_hour10" value="4" hidden>4</td>
+                <td><input type="number" name="practical_hour10" value="0" hidden>0</td>
+                <td><input type="number" name="akts10" value="4" hidden>4</td>
+                <td><input type="number" name="credit10" value="3" hidden>3</td>
+                <td><input type="text" name="course_type10" value="Compulsory" hidden>Compulsory</td>
+                <td>
+                    <select class="custom-select custom-select-sm" name="branch10">
+                        <option selected>Select</option>
+                        <option value="1. branch" style="font-size: larger;">1. branch</option>
+                        <option value="2. branch" style="font-size: larger;">2. branch</option>
+                    </select>    
+                </td>
+                <td>
+                    <div class="custom-control custom-checkbox ml-3">
+                        <input type="checkbox" class="custom-control-input" name="is_course_chosen10" id="customCheck10">
+                        <label class="custom-control-label" for="customCheck10"></label>
+                    </div>
+                </td>
+              </tr>
+              <tr class="text-center">
+                <th scope="row">5</th>
+                <td><input type="text" name="department_name11" value="Artifical Intelligence" hidden>Artifical Intelligence</td>
+                <td><input type="text" name="course_id11" value="TDL1001" hidden>TDL1001</td>
+                <td><input type="text" name="course_name11" value="DataBase Management Systems" hidden>DataBase Management Systems</td>
+                <td><input type="number" name="theoretical_hour11" value="2" hidden>2</td>
+                <td><input type="number" name="practical_hour11" value="0" hidden>0</td>
+                <td><input type="number" name="akts11" value="2" hidden>2</td>
+                <td><input type="number" name="credit11" value="2" hidden>2</td>
+                <td><input type="text" name="course_type11" value="Compulsory" hidden>Compulsory</td>
+                <td>
+                    <select class="custom-select custom-select-sm" name="branch11">
+                        <option selected value="1. branch" style="font-size: larger;">1. branch</option>
+                    </select>    
+                </td>
+                <td>
+                    <div class="custom-control custom-checkbox ml-3">
+                        <input type="checkbox" class="custom-control-input" name="is_course_chosen11" id="customCheck11">
+                        <label class="custom-control-label" for="customCheck11"></label>
+                    </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+
+    <!--Third Year Courses-->
+    <div class="card mt-5">
+        <div class="card-header lead" style="background-color:  rgba(99, 151, 199, 0.726);">
+            Third Year Courses
+        </div>
+    
+        <table class="table table-bordered" style="font-size: smaller;">
+            <thead class="thead-light">
+              <tr class="text-center">
+                <th scope="col">#</th>
+                <th scope="col">Department Name</th>
+                <th scope="col">Course Code</th>
+                <th scope="col">Course Name</th>
+                <th scope="col">Theoritacal</th>
+                <th scope="col">Practical</th>
+                <th scope="col">Credit</th>
+                <th scope="col">Course Type</th>
+                <th scope="col">Branch</th>
+                <th scope="col">Choice</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="text-center">
+                <th scope="row">1</th>
+                <td><input type="text" name="department_name12" value="Artifical Intelligence" hidden>Artifical Intelligence</td>
+                <td><input type="text" name="course_id12" value="CME3201" hidden>CME3201</td>
+                <td><input type="text" name="course_name12" value="Deep Learning" hidden>Deep Learning</td>
+                <td><input type="number" name="theoretical_hour12" value="2" hidden>2</td>
+                <td><input type="number" name="practical_hour12" value="2" hidden>2</td>
+                <td><input type="number" name="credit12" value="3" hidden>3</td>
+                <td><input type="text" name="course_type12" value="Compulsory" hidden>Compulsory</td>
+                <td>
+                    <select class="custom-select custom-select-sm" name="branch12">
+                        <option selected>Select</option>
+                        <option value="1. branch" style="font-size: larger;">1. branch</option>
+                        <option value="2. branch" style="font-size: larger;">2. branch</option>
+                    </select>    
+                </td>
+                <td>
+                    <div class="custom-control custom-checkbox ml-3">
+                        <input type="checkbox" class="custom-control-input" name="is_course_chosen12" id="customCheck12">
+                        <label class="custom-control-label" for="customCheck12"></label>
+                    </div>
+                </td>
+              </tr>
+              <tr class="text-center">
+                <th scope="row">2</th>
+                <td><input type="text" name="department_name13" value="Artifical Intelligence" hidden>Artifical Intelligence</td>
+                <td><input type="text" name="course_id13" value="CME3203" hidden>CME3203</td>
+                <td><input type="text" name="course_name13" value="Big Data Analaytics" hidden>Big Data Analaytics</td>
+                <td><input type="number" name="theoretical_hour13" value="2" hidden>2</td>
+                <td><input type="number" name="practical_hour13" value="2" hidden>2</td>
+                <td><input type="number" name="credit13" value="3" hidden>3</td>
+                <td><input type="text" name="course_type13" value="Compulsory" hidden>Compulsory</td>
+                <td>
+                    <select class="custom-select custom-select-sm" name="branch13">
+                        <option selected>Select</option>
+                        <option value="1. branch" style="font-size: larger;">1. branch</option>
+                        <option value="2. branch" style="font-size: larger;">2. branch</option>
+                    </select>    
+                </td>
+                <td>
+                    <div class="custom-control custom-checkbox ml-3">
+                        <input type="checkbox" class="custom-control-input" name="is_course_chosen13" id="customCheck13">
+                        <label class="custom-control-label" for="customCheck13"></label>
+                    </div>
+                </td>
+              </tr>
+              <tr class="text-center">
+                <th scope="row">3</th>
+                <td><input type="text" name="department_name14" value="Artifical Intelligence" hidden>Artifical Intelligence</td>
+                <td><input type="text" name="course_id14" value="CME3205" hidden>CME3205</td>
+                <td><input type="text" name="course_name14" value="Streaming Analaytics" hidden>Streaming Analaytics</td>
+                <td><input type="number" name="theoretical_hour14" value="2" hidden>2</td>
+                <td><input type="number" name="practical_hour14" value="2" hidden>2</td>
+                <td><input type="number" name="credit14" value="3" hidden>3</td>
+                <td><input type="text" name="course_type14" value="Compulsory" hidden>Compulsory</td>
+                <td>
+                    <select class="custom-select custom-select-sm" name="branch14">
+                        <option selected>Select</option>
+                        <option value="1. branch" style="font-size: larger;">1. branch</option>
+                        <option value="2. branch" style="font-size: larger;">2. branch</option>
+                    </select>    
+                </td>
+                <td>
+                    <div class="custom-control custom-checkbox ml-3">
+                        <input type="checkbox" class="custom-control-input" name="is_course_chosen14" id="customCheck14">
+                        <label class="custom-control-label" for="customCheck14"></label>
+                    </div>
+                </td>
+              </tr>
+              <tr class="text-center">
+                <th scope="row">4</th>
+                <td><input type="text" name="department_name15" value="Artifical Intelligence" hidden>Artifical Intelligence</td>
+                <td><input type="text" name="course_id15" value="CME3207" hidden>CME3207</td>
+                <td><input type="text" name="course_name15" value="Computer Vision" hidden>Computer Vision</td>
+                <td><input type="number" name="theoretical_hour15" value="2" hidden>2</td>
+                <td><input type="number" name="practical_hour15" value="2" hidden>2</td>
+                <td><input type="number" name="credit15" value="3" hidden>3</td>
+                <td><input type="text" name="course_type15" value="Compulsory" hidden>Compulsory</td>
+                <td>
+                    <select class="custom-select custom-select-sm" name="branch15">
+                        <option selected>Select</option>
+                        <option value="1. branch" style="font-size: larger;">1. branch</option>
+                        <option value="2. branch" style="font-size: larger;">2. branch</option>
+                    </select>    
+                </td>
+                <td>
+                    <div class="custom-control custom-checkbox ml-3">
+                        <input type="checkbox" class="custom-control-input" name="is_course_chosen15" id="customCheck15">
+                        <label class="custom-control-label" for="customCheck15"></label>
+                    </div>
+                </td>
+              </tr>
+              <tr class="text-center">
+                <th scope="row">5</th>
+                <td><input type="text" name="department_name16" value="Artifical Intelligence" hidden>Artifical Intelligence</td>
+                <td><input type="text" name="course_id16" value="ATA1001" hidden>ATA1001</td>
+                <td><input type="text" name="course_name16" value="Cloud Computing" hidden>Cloud Computing</td>
+                <td><input type="number" name="theoretical_hour16" value="2" hidden>2</td>
+                <td><input type="number" name="practical_hour16" value="2" hidden>0</td>
+                <td><input type="number" name="credit16" value="2" hidden>2</td>
+                <td><input type="text" name="course_type16" value="Compulsory" hidden>Compulsory</td>
+                <td>
+                    <select class="custom-select custom-select-sm" name="branch16">
+                        <option selected value="1. branch" style="font-size: larger;">1. branch</option>
+                    </select>    
+                </td>
+                <td>
+                    <div class="custom-control custom-checkbox ml-3">
+                        <input type="checkbox" class="custom-control-input" name="is_course_chosen16" id="customCheck16">
+                        <label class="custom-control-label" for="customCheck16"></label>
+                    </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+
+    <!--Fourth Year Courses-->
+    <div class="card my-5">
+        <div class="card-header lead" style="background-color:  rgba(199, 99, 107, 0.726);">
+            Fourth Year Courses
+        </div>
+    
+        <table class="table table-bordered" style="font-size: smaller;">
+            <thead class="thead-light">
+              <tr class="text-center">
+                <th scope="col">#</th>
+                <th scope="col">Department Name</th>
+                <th scope="col">Course Code</th>
+                <th scope="col">Course Name</th>
+                <th scope="col">Theoritacal</th>
+                <th scope="col">Practical</th>
+                <th scope="col">Credit</th>
+                <th scope="col">Course Type</th>
+                <th scope="col">Branch</th>
+                <th scope="col">Choice</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr class="text-center">
+                  <th scope="row">1</th>
+                  <td><input type="text" name="department_name12" value="Artifical Intelligence" hidden>Artifical Intelligence</td>
+                  <td><input type="text" name="course_id12" value="CME3201" hidden>CME3201</td>
+                  <td><input type="text" name="course_name12" value="Mega Project" hidden>Mega Project</td>
+                  <td><input type="number" name="theoretical_hour12" value="2" hidden>2</td>
+                  <td><input type="number" name="practical_hour12" value="4" hidden>4</td>
+                  <td><input type="number" name="credit12" value="3" hidden>3</td>
+                  <td><input type="text" name="course_type12" value="Compulsory" hidden>Compulsory</td>
+                  <td>
+                      <select class="custom-select custom-select-sm" name="branch12">
+                          <option selected>Select</option>
+                          <option value="1. branch" style="font-size: larger;">1. branch</option>
+                          <option value="2. branch" style="font-size: larger;">2. branch</option>
+                      </select>    
+                  </td>
+                  <td>
+                      <div class="custom-control custom-checkbox ml-3">
+                          <input type="checkbox" class="custom-control-input" name="is_course_chosen12" id="customCheck12">
+                          <label class="custom-control-label" for="customCheck12"></label>
+                      </div>
+                  </td>
+                </tr>
+                <tr class="text-center">
+                  <th scope="row">2</th>
+                  <td><input type="text" name="department_name13" value="Artifical Intelligence" hidden>Artifical Intelligence</td>
+                  <td><input type="text" name="course_id13" value="CME3203" hidden>CME3203</td>
+                  <td><input type="text" name="course_name13" value="Internship" hidden>Internship</td>
+                  <td><input type="number" name="theoretical_hour13" value="2" hidden>2</td>
+                  <td><input type="number" name="practical_hour13" value="4" hidden>4</td>
+                  <td><input type="number" name="credit13" value="3" hidden>3</td>
+                  <td><input type="text" name="course_type13" value="Compulsory" hidden>Compulsory</td>
+                  <td>
+                      <select class="custom-select custom-select-sm" name="branch13">
+                          <option selected>Select</option>
+                          <option value="1. branch" style="font-size: larger;">1. branch</option>
+                          <option value="2. branch" style="font-size: larger;">2. branch</option>
+                      </select>    
+                  </td>
+                  <td>
+                      <div class="custom-control custom-checkbox ml-3">
+                          <input type="checkbox" class="custom-control-input" name="is_course_chosen13" id="customCheck13">
+                          <label class="custom-control-label" for="customCheck13"></label>
+                      </div>
+                  </td>
+                </tr>
+                <tr class="text-center">
+                  <th scope="row">3</th>
+                  <td><input type="text" name="department_name14" value="Artifical Intelligence" hidden>Artifical Intelligence</td>
+                  <td><input type="text" name="course_id14" value="CME3205" hidden>CME3205</td>
+                  <td><input type="text" name="course_name14" value="Natural Language Processing" hidden>Natural Language Processing</td>
+                  <td><input type="number" name="theoretical_hour14" value="2" hidden>2</td>
+                  <td><input type="number" name="practical_hour14" value="2" hidden>2</td>
+                  <td><input type="number" name="credit14" value="3" hidden>3</td>
+                  <td><input type="text" name="course_type14" value="Compulsory" hidden>Compulsory</td>
+                  <td>
+                      <select class="custom-select custom-select-sm" name="branch14">
+                          <option selected>Select</option>
+                          <option value="1. branch" style="font-size: larger;">1. branch</option>
+                          <option value="2. branch" style="font-size: larger;">2. branch</option>
+                      </select>    
+                  </td>
+                  <td>
+                      <div class="custom-control custom-checkbox ml-3">
+                          <input type="checkbox" class="custom-control-input" name="is_course_chosen14" id="customCheck14">
+                          <label class="custom-control-label" for="customCheck14"></label>
+                      </div>
+                  </td>
+                </tr>
+                <tr class="text-center">
+                  <th scope="row">4</th>
+                  <td><input type="text" name="department_name15" value="Artifical Intelligence" hidden>Artifical Intelligence</td>
+                  <td><input type="text" name="course_id15" value="CME3207" hidden>CME3207</td>
+                  <td><input type="text" name="course_name15" value="AI Ethicks" hidden>AI Ethicks</td>
+                  <td><input type="number" name="theoretical_hour15" value="2" hidden>2</td>
+                  <td><input type="number" name="practical_hour15" value="2" hidden>2</td>
+                  <td><input type="number" name="credit15" value="3" hidden>3</td>
+                  <td><input type="text" name="course_type15" value="Compulsory" hidden>Compulsory</td>
+                  <td>
+                      <select class="custom-select custom-select-sm" name="branch15">
+                          <option selected>Select</option>
+                          <option value="1. branch" style="font-size: larger;">1. branch</option>
+                          <option value="2. branch" style="font-size: larger;">2. branch</option>
+                      </select>    
+                  </td>
+                  <td>
+                      <div class="custom-control custom-checkbox ml-3">
+                          <input type="checkbox" class="custom-control-input" name="is_course_chosen15" id="customCheck15">
+                          <label class="custom-control-label" for="customCheck15"></label>
+                      </div>
+                  </td>
+                </tr>
+                <tr class="text-center">
+                  <th scope="row">5</th>
+                  <td><input type="text" name="department_name16" value="Artifical Intelligence" hidden>Artifical Intelligence</td>
+                  <td><input type="text" name="course_id16" value="ATA1001" hidden>ATA1001</td>
+                  <td><input type="text" name="course_name16" value="Prompt Engineering" hidden>Prompt Engineering</td>
+                  <td><input type="number" name="theoretical_hour16" value="2" hidden>2</td>
+                  <td><input type="number" name="practical_hour16" value="2" hidden>0</td>
+                  <td><input type="number" name="credit16" value="2" hidden>2</td>
+                  <td><input type="text" name="course_type16" value="Compulsory" hidden>Compulsory</td>
+                  <td>
+                      <select class="custom-select custom-select-sm" name="branch16">
+                          <option selected value="1. branch" style="font-size: larger;">1. branch</option>
+                      </select>    
+                  </td>
+                  <td>
+                      <div class="custom-control custom-checkbox ml-3">
+                          <input type="checkbox" class="custom-control-input" name="is_course_chosen16" id="customCheck16">
+                          <label class="custom-control-label" for="customCheck16"></label>
+                      </div>
+                  </td>
+                </tr>
+              </tbody>
+          </table>
+          <button class="btn btn-danger mx-auto mb-3 lead" style="width: 200px;" type="submit">Collision Check</button>
+    </div>
+
+</form>
+{% endblock content %}
